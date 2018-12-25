@@ -1,6 +1,3 @@
-#TelegramBot @MerryChristmasAscii_bot
-#653964122:AAGAZKN6Aa5e_k-1ZeOqwzmcSr0Xx8KVwNs
-#https://api.telegram.org/botMerryChristmasAscii_bot/getme
 import termcolor
 import random
 import time
@@ -26,9 +23,9 @@ colors = [
         'cyan',
         'white']
 
-yellowlight = termcolor.colored('0', 'yellow')
-magentalight = termcolor.colored('0', 'magenta')
-cyanlight = termcolor.colored('0', 'cyan')
+yellowlight = termcolor.colored('o', 'yellow')
+magentalight = termcolor.colored('o', 'magenta')
+cyanlight = termcolor.colored('o', 'cyan')
 
 lightlist = [yellowlight, cyanlight, magentalight]
 
@@ -41,7 +38,7 @@ while True: #exit with ctrl+C
             if random.randint(0,500)>= 250:
                 tree += lightlist[random.randint(0,2)]
             else:
-                tree += termcolor.colored('#', 'green')
+                tree += termcolor.colored('*', 'green')
         string = '_'*(15-int(i/2))+tree+'_'*(15-int(i/2))
         print(string)
     trunk=colored('mWm', 'yellow')
