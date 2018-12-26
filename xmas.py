@@ -9,10 +9,10 @@ from termcolor import colored
 def clear():   
     # check if  windows 
     if name == 'nt': 
-        _ = system('cls') 
+        system('cls') 
     # if *nix 
     else: 
-        _ = system('clear') 
+        system('clear') 
 
 colors = [
         'red',
@@ -31,20 +31,23 @@ lightlist = [yellowlight, cyanlight, magentalight]
 
 init()
 while True: #exit with ctrl+C
-    random.seed(datetime.datetime.now())
+    print('to exit use a keyboard interrupt (ctrl+c)')
     for i in range(1,30,2):
         tree = ''
         for j in range(i):
-            if random.randint(0,500)>= 250:
+            randNum=random.randint(0,500)
+            if (randNum <= 750) and (randNum >=250) :
                 tree += lightlist[random.randint(0,2)]
             else:
                 tree += termcolor.colored('*', 'green')
-        string = '_'*(15-int(i/2))+tree+'_'*(15-int(i/2))
-        print(string)
+        string = '_'*(15-int(i/2))+tree+'_'*(15-int(i/2))+'\n'
+        print(string,end='')
     trunk=colored('mWm', 'yellow')
     for k in range(3):
-        print('_'*14+trunk+'_'*14)
+        outbuffer2 = '_'*14+trunk+'_'*14+'\n'
+        print(outbuffer2, end='')
         merry_Christmas =termcolor.colored('Merry Christmas', colors[random.randint(0,len(colors)-1)])
-    print('_'*8+merry_Christmas+'_'*8)
-    time.sleep(0.5)
+        outbuffer3 = '_'*8+merry_Christmas+'_'*8+'\n'
+    print(outbuffer3, end='')
+    time.sleep(0.4)
     clear()
