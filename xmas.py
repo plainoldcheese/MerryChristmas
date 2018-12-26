@@ -2,11 +2,13 @@ import termcolor
 import random
 import time
 import datetime
+import platform
 from os import system, name 
 from colorama import init
 from termcolor import colored
 
 def clear():   
+    name = platform.system()
     # check if  windows 
     if name == 'nt': 
         system('cls') 
