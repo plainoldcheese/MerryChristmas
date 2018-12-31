@@ -1,19 +1,17 @@
 import termcolor
 import random
-import time
-import datetime
-#import platform
-import os
+import time, datetime
+import sys, os
 from colorama import init
 from termcolor import colored
 
 def clear():   
-    #name = platform.system()
-    if os.name == 'posix': # if *nix 
+    if sys.platform == 'win32': # if windows 
+        return os.system('cls')
+    else: #if *nix
         return os.system('clear')
-    else: #if  windows 
-        return os.system('cls') 
-
+        
+        
 colors = [
         'red',
         'green',
