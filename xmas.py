@@ -47,7 +47,7 @@ while True: #exit with ctrl+C
         merry_Christmas =termcolor.colored('Merry Christmas', colors[random.randint(0,len(colors)-1)]) 
     outbuffer2 = '_'*8+merry_Christmas+'_'*8+'\n'
     print(outbuffer2, end='')
-    time.sleep(0.5)
+    time.sleep(0.4)
     clear()
     
     
