@@ -68,7 +68,5 @@ try:
         time.sleep(SPEED)
         os.system(CLEAR_COMMAND)
 except Exception:
-    from traceback import print_exc
-    print_exc()
     print(Colors.NORMAL)
     print("Good bye and Merry Christmas 🎄!")
