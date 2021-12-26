@@ -67,6 +67,6 @@ try:
         print(underscores + message + underscores)
         time.sleep(SPEED)
         os.system(CLEAR_COMMAND)
-except Exception:
+except:
     print(Colors.NORMAL)
     print("Good bye and Merry Christmas 🎄!")
