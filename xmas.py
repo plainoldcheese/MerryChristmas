@@ -9,6 +9,8 @@ import time
 
 FILL = "_"  # what will be used next to the tree
 SPEED = 0.4  # the seconds between each frame
+HEIGHT = 15
+MESSAGE = "Merry Christmas!"
 
 
 class Colors:
@@ -50,21 +52,24 @@ LIGHTS = [
 ]
 
 GREEN_LEAF = "{color}*{normal}".format(color=Colors.GREEN, normal=Colors.NORMAL)
-underscores = FILL * 14
+
+underscores = FILL * (HEIGHT - 1)
 TRUNK = '\n'.join([underscores + "{color}mWm{normal}".format(color=Colors.YELLOW, normal=Colors.NORMAL) + underscores for _ in range(3)])
+
+MERRY_CHRISTMAS_UNDERSCORES = FILL * (HEIGHT - (len(MESSAGE) // 2))
+MERRY_CHRISTMAS = MERRY_CHRISTMAS_UNDERSCORES + "{color}" + MESSAGE + Colors.NORMAL + MERRY_CHRISTMAS_UNDERSCORES + (FILL if len(MESSAGE) % 2 == 0 else "")
+
 CLEAR_COMMAND = "cls" if os.name == "nt" else "clear"
 
 try:
     while True:  # exit with ctrl+C
         print('Exit by pressing down Ctrl+C')
-        for i in range(1, 30, 2):  # tree
+        for i in range(1, HEIGHT * 2, 2):  # tree
             tree = ''.join([str(random.choice(LIGHTS)) if random.random() >= 0.5 else GREEN_LEAF for _ in range(i)])
-            underscores = FILL * (15 - i // 2)
+            underscores = FILL * (HEIGHT - i // 2)
             print(underscores + tree + underscores)
         print(TRUNK)
-        message = "{color}Merry Christmas{normal}".format(color=random.choice(Colors._COLORS), normal=Colors.NORMAL)
-        underscores = FILL * 8
-        print(underscores + message + underscores)
+        print(MERRY_CHRISTMAS.format(color=random.choice(Colors._COLORS)))
         time.sleep(SPEED)
         os.system(CLEAR_COMMAND)
 except:
